@@ -1,79 +1,47 @@
-Registration Form
+# Registration Form Tutorial
 
-A clean, accessible registration form built with semantic HTML and responsive CSS. It includes required fields, validation, grouped radios, a file upload, select menu, textarea sizing, and a required TOS checkbox — all styled with a dark theme.
+This guide walks you through building a clean, dark-themed registration form using HTML and CSS.  
+At the end, the full code is included for easy copy-paste.
 
-How to Run
+---
 
-Create two files in the same folder: index.html and styles.css.
+## **Step 1 — Base Page Setup**
+**What I did:** Created the HTML skeleton, set the title, and linked `styles.css`.  
+**Why this matters:** Keeps structure and styles separate for easier maintenance.  
 
-Paste the code from the Full Code section below.
-
-Open index.html in your browser.
-
-Steps
-Step 1 — Base page setup
-
-<u>What I did</u>: Created the HTML skeleton, set the title, and linked a separate styles.css.
-<u>Why this matters</u>: Separating structure and style keeps things clean and maintainable.
-<u>Before</u>:
-
+```html
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-      <title>Registration Form</title>
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="styles.css" />
   </head>
-  <body></body>
+  <body>
+  </body>
 </html>
 
+Step 2 — Page Heading and Description
 
-<u>After</u>:
-
-<link rel="stylesheet" href="styles.css" />
-
-Step 2 — Page heading & helper text
-
-<u>What I did</u>: Added an <h1> and a short <p> above the form.
-<u>Why this matters</u>: Gives users context before they start typing.
-<u>Before</u>:
-
-<body></body>
-
-
-<u>After</u>:
+What I did: Added <h1> and <p> above the form.
+Why this matters: Gives users context before filling out the form.
 
 <h1>Registration Form</h1>
 <p>Please fill out this form with the required information</p>
 
-Step 3 — Form tag with method & action
+Step 3 — Form Tag with Method and Action
 
-<u>What I did</u>: Wrapped controls in a <form> with method="post" and action="https://register-demo.freecodecamp.org".
-<u>Why this matters</u>: Defines how/where the form submits — useful for testing or integrating a backend.
-<u>Before</u>:
-
-<form>
-  <!-- inputs -->
-</form>
-
-
-<u>After</u>:
+What I did: Wrapped the inputs in a <form> with method="post" and a demo action.
+Why this matters: Defines how and where the form submits.
 
 <form method="post" action="https://register-demo.freecodecamp.org">
-  <!-- inputs -->
+  <!-- form fields go here -->
 </form>
 
-Step 4 — Basic info fieldset
+Step 4 — Basic Info Fieldset
 
-<u>What I did</u>: Added First Name, Last Name, Email, and Password with labels and name attributes. Included required and a password pattern.
-<u>Why this matters</u>: name is needed for submission; built-in validation improves UX.
-<u>Before</u>:
-
-<input id="first-name" type="text">
-<input id="email" type="email">
-<input id="new-password" type="password">
-
-
-<u>After</u>:
+What I did: Added First Name, Last Name, Email, and Password with required and a pattern for password validation.
+Why this matters: Ensures correct input and required data.
 
 <fieldset>
   <label for="first-name">Enter Your First Name:
@@ -90,17 +58,10 @@ Step 4 — Basic info fieldset
   </label>
 </fieldset>
 
-Step 5 — Account type radios
+Step 5 — Account Type Radios
 
-<u>What I did</u>: Grouped radios inside a <fieldset> with a <legend>. Used a shared name="account-type" and .inline to keep controls aligned with labels.
-<u>Why this matters</u>: Grouping is accessible and ensures only one choice is selected.
-<u>Before</u>:
-
-<input id="personal-account" type="radio">
-<input id="business-account" type="radio">
-
-
-<u>After</u>:
+What I did: Added radio buttons inside a <fieldset> with a <legend>.
+Why this matters: Grouping ensures only one choice can be selected and improves accessibility.
 
 <fieldset>
   <legend>Account type (required)</legend>
@@ -112,16 +73,10 @@ Step 5 — Account type radios
   </label>
 </fieldset>
 
-Step 6 — File upload & age constraints
+Step 6 — File Upload and Age Input
 
-<u>What I did</u>: Added a file input for profile picture and a number input for age with min="13" and max="120".
-<u>Why this matters</u>: Constrains input to valid ranges and clarifies expectations.
-<u>Before</u>:
-
-<input id="age" type="number">
-
-
-<u>After</u>:
+What I did: Added a profile picture input and age number input with min/max.
+Why this matters: Validates age and allows optional profile upload.
 
 <fieldset>
   <label for="profile-picture">Upload a profile picture:
@@ -132,16 +87,10 @@ Step 6 — File upload & age constraints
   </label>
 </fieldset>
 
-Step 7 — Referral select menu
+Step 7 — Referral Select Menu
 
-<u>What I did</u>: Created a <select> with a blank default and clear option values.
-<u>Why this matters</u>: Avoids accidental preselection and supports simple analytics.
-<u>Before</u>:
-
-<select id="referrer"></select>
-
-
-<u>After</u>:
+What I did: Added a dropdown to track how users heard about the form.
+Why this matters: Provides analytics data and improves UX.
 
 <label for="referrer">How did you hear about us?
   <select id="referrer" name="referrer">
@@ -153,60 +102,36 @@ Step 7 — Referral select menu
   </select>
 </label>
 
-Step 8 — Bio textarea sizing
+Step 8 — Bio Textarea
 
-<u>What I did</u>: Sized the textarea with rows="3" and cols="30".
-<u>Why this matters</u>: Improves usability without relying only on CSS.
-<u>Before</u>:
-
-<textarea id="bio" name="bio" placeholder="I like coding on the beach..."></textarea>
-
-
-<u>After</u>:
+What I did: Added a textarea with rows and cols.
+Why this matters: Gives the user space to write a bio without relying only on CSS.
 
 <label for="bio">Provide a bio:
   <textarea id="bio" name="bio" rows="3" cols="30" placeholder="I like coding on the beach..."></textarea>
 </label>
 
-Step 9 — Terms & conditions (required)
+Step 9 — Terms and Conditions Checkbox
 
-<u>What I did</u>: Added a required checkbox with a link to the TOS.
-<u>Why this matters</u>: Ensures users consent before submission.
-<u>Before</u>:
-
-<input id="terms-and-conditions" type="checkbox">
-
-
-<u>After</u>:
+What I did: Added a required checkbox linked to terms.
+Why this matters: Ensures user consent before submission.
 
 <label for="terms-and-conditions">
   <input class="inline" id="terms-and-conditions" type="checkbox" required name="terms-and-conditions" />
   I accept the <a href="https://www.freecodecamp.org/news/terms-of-service/">terms and conditions</a>
 </label>
 
-Step 10 — Submit button
+Step 10 — Submit Button
 
-<u>What I did</u>: Added a large, centered submit button with a minimum width for smaller screens.
-<u>Why this matters</u>: Clear call-to-action improves completion.
-<u>Before</u>:
-
-<!-- none -->
-
-
-<u>After</u>:
+What I did: Added a centered submit button.
+Why this matters: Provides a clear call-to-action.
 
 <input type="submit" value="Submit" />
 
-Step 11 — Styling (CSS)
+Step 11 — CSS Styling
 
-<u>What I did</u>: Dark theme, high contrast text, centered responsive form (60vw, max 500px), full-width inputs, and .inline class for radios/checkboxes.
-<u>Why this matters</u>: Better readability, accessibility, and responsiveness.
-<u>Before</u>:
-
-/* minimal or no styles */
-
-
-<u>After</u>:
+What I did: Dark theme, full-width inputs, responsive form, .inline class for radios/checkboxes.
+Why this matters: Makes the form readable, accessible, and visually appealing.
 
 body {
   width: 100%;
@@ -285,18 +210,70 @@ a {
   color: #dfdfe2;
 }
 
-Accessibility Notes
+Full HTML Code
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <h1>Registration Form</h1>
+    <p>Please fill out this form with the required information</p>
+    <form method="post" action="https://register-demo.freecodecamp.org">
+      <fieldset>
+        <label for="first-name">Enter Your First Name:
+          <input id="first-name" name="first-name" type="text" required />
+        </label>
+        <label for="last-name">Enter Your Last Name:
+          <input id="last-name" name="last-name" type="text" required />
+        </label>
+        <label for="email">Enter Your Email:
+          <input id="email" name="email" type="email" required />
+        </label>
+        <label for="new-password">Create a New Password:
+          <input id="new-password" name="new-password" type="password" pattern="[a-z0-5]{8,}" required />
+        </label>
+      </fieldset>
 
-Labels wrap inputs to enlarge clickable area.
+      <fieldset>
+        <legend>Account type (required)</legend>
+        <label for="personal-account">
+          <input id="personal-account" type="radio" name="account-type" class="inline" checked /> Personal
+        </label>
+        <label for="business-account">
+          <input id="business-account" type="radio" name="account-type" class="inline" /> Business
+        </label>
+      </fieldset>
 
-Radios grouped with a <legend> for screen reader context.
+      <fieldset>
+        <label for="profile-picture">Upload a profile picture:
+          <input id="profile-picture" type="file" name="file" />
+        </label>
+        <label for="age">Input your age (years):
+          <input id="age" type="number" name="age" min="13" max="120" />
+        </label>
+        <label for="referrer">How did you hear about us?
+          <select id="referrer" name="referrer">
+            <option value="">(select one)</option>
+            <option value="1">freeCodeCamp News</option>
+            <option value="2">freeCodeCamp YouTube Channel</option>
+            <option value="3">freeCodeCamp Forum</option>
+            <option value="4">Other</option>
+          </select>
+        </label>
+        <label for="bio">Provide a bio:
+          <textarea id="bio" name="bio" rows="3" cols="30" placeholder="I like coding on the beach..."></textarea>
+        </label>
+      </fieldset>
 
-High contrast palette and large touch targets.
+      <label for="terms-and-conditions">
+        <input class="inline" id="terms-and-conditions" type="checkbox" required name="terms-and-conditions" />
+        I accept the <a href="https://www.freecodecamp.org/news/terms-of-service/">terms and conditions</a>
+      </label>
 
-Built-in browser validation on required fields.
-
-Files
-
-index.html — Structure and semantics
-
-styles.css — Layout and theming
+      <input type="submit" value="Submit" />
+    </form>
+  </body>
+</html>
